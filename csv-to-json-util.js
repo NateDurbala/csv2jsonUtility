@@ -4,6 +4,6 @@ const csv = require('csvtojson');
 
 const csvFilePath = path.join(__dirname, 'customer-data.csv');
 
-let data = csv().fromFile(csvFilePath).then(jsonObj);
-
-fs.writeFileSync(path.join(__dirname, 'customer-data.json'), JSON.stringify(data, null, 2))
+csv().fromFile(csvFilePath).then((jsonObj) => {
+    fs.writeFileSync(path.join(__dirname, 'customer-data.json'), JSON.stringify(jsonObj, null, 2));
+})
